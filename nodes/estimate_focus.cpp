@@ -165,7 +165,9 @@ int main( int argc, char** argv )
                         //ss is the frame that the observer is looking
                     }
                 }
-                frames_in_fov_pub.publish(ss.str());
+                std_msgs::String ssmsg;
+                ssmsg.data = ss.str();
+                frames_in_fov_pub.publish(ssmsg);
 
                 fov.range = RANGE;
                 fov.header.stamp = ros::Time::now();
